@@ -1,0 +1,19 @@
+FF = QQ;
+R = FF[x,y,a,b,f];
+dot = (v,w) -> (transpose v * w)_(0,0);
+doppler = (ri,vi,fi,r,v,f) -> dot(ri-r,ri-r) * (f-fi)^2 - f^2*(dot(vi-v,ri-r))^2;
+
+r = matrix{{x},{y}};
+v = matrix{{a},{b}};
+
+dopplerEquations = {};
+
+for i from 1 to 3 do(
+    r1 = random(FF^2,FF^1);
+    v1 = random(FF^2,FF^1);
+    f1 = random 1000;
+    dopplerEquation = doppler(r1,v1,f1,r,v,f);
+    dopplerEquations = append(dopplerEquations, dopplerEquation);
+)
+
+dim ideal dopplerEquations
