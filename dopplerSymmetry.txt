@@ -1,0 +1,41 @@
+FF = QQ;
+R = FF[x,y,a,b,f];
+dot = (v,w) -> (transpose v * w)_(0,0);
+doppler = (ri,vi,fi,r,v,f) -> dot(ri-r,ri-r) * (f-fi)^2 - f^2*(dot(vi-v,ri-r))^2;
+
+r = matrix{{x},{y}};
+v = matrix{{a},{b}};
+
+dopplerEquations = {};
+
+r1 = matrix{{1/2},{1/2}};
+v1 = matrix{{1/2},{1/2}};
+f1 = random 5;
+dopplerEquation = doppler(r1,v1,f1,r,v,f);
+dopplerEquations = append(dopplerEquations, dopplerEquation);
+
+r1 = matrix{{1/2},{-1/2}};
+v1 = matrix{{1/2},{-1/2}};
+f1 = random 5;
+dopplerEquation = doppler(r1,v1,f1,r,v,f);
+dopplerEquations = append(dopplerEquations, dopplerEquation);
+
+r1 = matrix{{-1/2},{1/2}};
+v1 = matrix{{-1/2},{1/2}};
+f1 = random 5;
+dopplerEquation = doppler(r1,v1,f1,r,v,f);
+dopplerEquations = append(dopplerEquations, dopplerEquation);
+
+r1 = matrix{{0},{0}};
+v1 = matrix{{0},{0}};
+f1 = random 5;
+dopplerEquation = doppler(r1,v1,f1,r,v,f);
+dopplerEquations = append(dopplerEquations, dopplerEquation);
+
+r1 = matrix{{-1/2},{-1/2}};
+v1 = matrix{{-1/2},{-1/2}};
+f1 = random 5;
+dopplerEquation = doppler(r1,v1,f1,r,v,f);
+dopplerEquations = append(dopplerEquations, dopplerEquation);
+
+degree ideal dopplerEquations
