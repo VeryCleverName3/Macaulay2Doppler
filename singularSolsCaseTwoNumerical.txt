@@ -15,23 +15,23 @@ dopplerEquations = {};
 
 r1 = matrix{{0},{1}};
 v1 = matrix{{0},{1}};
-f1 = 1;
+f1 = 2;
 dopplerEquation = doppler(r1,v1,f1,r,v,freal);
 dopplerEquations = append(dopplerEquations, dopplerEquation);
 
 r1 = matrix{{1},{0}};
 v1 = matrix{{1},{0}};
-f1 = 1;
+f1 = 2;
 dopplerEquation = doppler(r1,v1,f1,r,v,freal);
 dopplerEquations = append(dopplerEquations, dopplerEquation);
 
 r1 = matrix{{-1},{0}};
 v1 = matrix{{-1},{0}};
-f1 = 4;
+f1 = 2;
 dopplerEquation = doppler(r1,v1,f1,r,v,freal);
 dopplerEquations = append(dopplerEquations, dopplerEquation);
 
-r1 = matrix{{0},{1}};
+r1 = matrix{{0},{-1}};
 v1 = matrix{{0},{1}};
 f1 = 4;
 dopplerEquation = doppler(r1,v1,f1,r,v,freal);
@@ -40,5 +40,5 @@ dopplerEquations = append(dopplerEquations, dopplerEquation);
 sols = solveSystem dopplerEquations;
 Jdet = det jacobian ideal dopplerEquations;
 
-sols#0
-subPoint(Jdet, {x,y,a,b}, sols#0)
+sols#24
+subPoint(Jdet, {x,y,a,b}, sols#24)
